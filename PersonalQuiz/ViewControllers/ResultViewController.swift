@@ -24,7 +24,7 @@ final class ResultViewController: UIViewController {
                 counts, typeAnimal in
                 counts[typeAnimal, default: 0] += 1
             }
-            .sorted(by: { $0.value > $1.value })
+            .sorted { $0.value > $1.value }
             .first?
             .key
         
