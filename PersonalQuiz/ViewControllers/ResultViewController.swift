@@ -23,7 +23,7 @@ final class ResultViewController: UIViewController {
             counts[typeAnimal, default: 0] += 1
         }.sorted(by: { $0.value > $1.value }).first?.key
         
-        largeResultLabel.text = String(result!.rawValue)
+        largeResultLabel.text = "Вы - " + String(result!.rawValue)
         smallResultLabel.text = result?.definition
     }
     
