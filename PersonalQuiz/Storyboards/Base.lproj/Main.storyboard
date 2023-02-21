@@ -306,7 +306,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы – осьминог" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-hC-bYw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы – осьминог" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-hC-bYw">
                                         <rect key="frame" x="85" y="68" width="118" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -323,13 +323,17 @@
                             <constraint firstItem="ovD-oU-ves" firstAttribute="centerY" secondItem="0zH-za-Hq0" secondAttribute="centerY" id="kr6-zM-ahc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Результат" id="6Aa-8C-AYu">
+                    <navigationItem key="navigationItem" title="Результат" customizationIdentifier="" id="6Aa-8C-AYu">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="WsX-6E-G2o">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="LiX-kO-U2P" id="lzA-IC-TAP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="largeResultLabel" destination="za0-gA-BIl" id="QqR-lV-LcI"/>
+                        <outlet property="smallResultLabel" destination="Mvl-hC-bYw" id="JvG-WE-BFD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvQ-pc-RMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

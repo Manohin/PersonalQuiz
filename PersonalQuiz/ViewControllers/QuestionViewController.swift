@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController {
+final class QuestionViewController: UIViewController {
     
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var questionProgressView: UIProgressView!
@@ -68,6 +68,11 @@ class QuestionViewController: UIViewController {
     
     deinit {
         print("\(type(of: self)) has been deallocated")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.answers = answersChosen
     }
     
 }
@@ -143,5 +148,4 @@ private extension QuestionViewController {
         
         performSegue(withIdentifier: "showResult", sender: nil)
     }
-    
 }
