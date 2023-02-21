@@ -19,29 +19,16 @@ final class ResultViewController: UIViewController {
         
         navigationItem.hidesBackButton = true
         
-        largeResultLabel.text = "Вы - " + String(getResult(for: answers)?.rawValue ?? " ")
-        smallResultLabel.text = getResult(for: answers)?.definition
+        let result = answers.map { $0.animal }.reduce(into: [:]) { counts, typeAnimal in
+            counts[typeAnimal, default: 0] += 1
+        }.sorted(by: { $0.value > $1.value }).first?.key
+        
+        largeResultLabel.text = String(result!.rawValue)
+        smallResultLabel.text = result?.definition
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
-    
-    private func getResult(for answers: [Answer]) -> Animal? {
-        
-        var animalsCount: [Animal: Int] = [:]
-        
-        let animals = answers.map { $0.animal }
-        
-        for animal in animals {
-            if let typeOfAnimal = animalsCount[animal] {
-                animalsCount.updateValue(typeOfAnimal + 1, forKey: animal)
-            } else {
-                animalsCount[animal] = 1
-            }
-        }
-        return animalsCount.sorted(by: { $0.value > $1.value }).first?.key
-    }
-    
 }
 
