@@ -20,9 +20,10 @@ final class ResultViewController: UIViewController {
         navigationItem.hidesBackButton = true
         
         let result = answers.map { $0.animal }
-            .reduce(into: [:]) { counts, typeAnimal in
-            counts[typeAnimal, default: 0] += 1
-        }
+            .reduce(into: [:]) {
+                counts, typeAnimal in
+                counts[typeAnimal, default: 0] += 1
+            }
             .sorted(by: { $0.value > $1.value })
             .first?
             .key
@@ -31,7 +32,6 @@ final class ResultViewController: UIViewController {
         
         largeResultLabel.text = "Вы - " + String(result.rawValue)
         smallResultLabel.text = result.definition
-        
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
